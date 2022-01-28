@@ -1,19 +1,22 @@
 package com.eden.sandbox.pdf;
 
 import com.eden.sandbox.aop.LogExecutionTime;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 
+@Api(tags = {"PDF 관련 기능 Controller"})
 @RestController
 @RequestMapping("/pdf")
 @Log4j2
 public class PdfController {
 
+  @ApiOperation(value = "PDF 정보 가져오기")
+//  @ApiImplicitParam(name = "tagIds", value = "검색할 태그 ID를 담은 리스트", dataType = "list")
   @GetMapping("/info")
   @LogExecutionTime
   public String getPdfInfo(){
@@ -26,13 +29,15 @@ public class PdfController {
     return "pdf 파일";
   }
 
-  @GetMapping("/convert")
-  public String convertPdf(@RequestParam(value = "fileName") String fileName){
+  @ApiOperation(value = "조건에 맞는 게시글 목록을 반환하는 메소드")
+  @ApiImplicitParam(name = "tagIds", value = "검색할 태그 ID를 담은 리스트", dataType = "list")
+  @GetMapping("/convert/{fileName}")
+  public String convertPdf(@PathVariable String fileName){
 
-    File file = new File("pdf파일의위치");
+    //    File file = new File("pdf파일의위치");
 //    PDDocument document = PDDocument.load(file);
 //    PDFRenderer pdfRenderer = new PDFRenderer(pdfDoc);
 
-    return "";
+    return "Response!!! >> " + fileName;
   }
 }

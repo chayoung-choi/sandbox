@@ -20,7 +20,7 @@ public class LogAspect {
     Object proceed = joinPoint.proceed();
 
     stopWatch.stop();
-    log.info(stopWatch.shortSummary());
+    log.info(stopWatch.prettyPrint());
     return proceed;
   }
 }
