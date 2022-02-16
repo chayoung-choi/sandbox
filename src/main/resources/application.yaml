@@ -2,3 +2,18 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+    static-path-pattern: "/static/**"
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+#      location: ./temp\\spring_uploaded_files
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html

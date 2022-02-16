@@ -11,9 +11,16 @@
 <!-- header fragment 사용-->
 <th:block th:replace="fragment/header :: commonHeader"></th:block>
 
-<!-- 현재 layout을 사용하는 content fragment의 내용을 삽입-->
-<th:block layout:fragment="content"></th:block>
+<div class="container-fluid">
+    <div class="row">
+        <th:block th:replace="fragment/sidebar :: commonSidebar"></th:block>
 
-<!-- footer fragment 사용-->
-<footer th:replace="fragment/footer :: commonFooter"></footer>
+        <!-- 현재 layout을 사용하는 content fragment의 내용을 삽입-->
+        <th:block layout:fragment="content"></th:block>
+
+        <!-- footer fragment 사용-->
+<!--        <footer th:replace="fragment/footer :: commonFooter"></footer>-->
+    </div>
+</div>
+
 </html>
