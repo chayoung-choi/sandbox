@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net/nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}">
+
+<main layout:fragment="content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">PDF</h1>
+    </div>
+    <div>
+        <ul th:each="data,status : ${tasks}">
+            <li th:text="|${status.count} : ${data}|"></li>
+        </ul>
+    </div>
+</main>
+</html>
